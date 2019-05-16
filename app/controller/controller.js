@@ -96,3 +96,85 @@ exports.getId = (req, res, next)=>{
         res.status(200).send(jsonmodel.get());
     })
 }
+
+
+exports.edit = (req, res, next)=> {
+    const id = req.params.profileId
+    Role_front.update({
+        name: req.body.name,
+        type: req.body.type,
+        action_id: req.body.action_id,
+        rules: [{
+            roleallcondition: JSON.stringify(req.body.conditions)
+        },
+    {
+        where: {id: id}    
+    }]
+    }).then(test => {
+        res.status(200).send("Rules Updated")
+    })
+
+    var object = {} // empty Object
+    var conditions = 'conditions';
+    var type = req.body.type;
+    var key = 'Orientation Sensor';
+    object.conditions = {}; // empty Array, which you can push() values into
+    object.conditions[type] = [];
+    var event = "event";
+    var fs = require('fs')
+
+    var object1 = {}
+
+
+    var data = []
+
+    for (var i = 0; i<req.body.rule.length; i++){
+        data [i] = {
+            fact: req.body.rule[i].var_name+"_"+req.body.rule[i].device_name+"_"+req.body.rule[i].device_type,
+            operator: req.body.rule[i].operator,
+            value: req.body.rule[i].value1,
+            value2: req.body.rule[i].value2
+        }
+        object.conditions[type].push(data[i]);
+
+        var nama;
+        nama = req.body.rule[i].var_name+"_"+req.body.rule[i].device_name+"_"+req.body.rule[i].device_type
+        object1[nama]= "";
+        vari_nama = JSON.stringify(object1);
+
+    }
+
+
+    // console.log(vari_nama)
+    fs.writeFile('allVarname.json', vari_nama, err=>{
+        if(err){
+            console.log('Error : ', err)
+        } else {
+            console.log('Succesfully wrote file')
+        }
+    })
+
+    object.event= {
+        "type": req.body.action_id,
+    "params": {
+            "message": "Player has fouled out!",
+            "action_id" : req.body.action_id
+        }
+    }
+
+
+
+    masuk = JSON.stringify(object)
+
+    Role.update({
+        name: req.body.name,
+        roleallcondition: masuk
+    },{
+        where: {id : id}
+    }).then(()=>{
+        console.log(masuk)
+        console.log("All For Backend Process Created ")
+    })
+
+   
+}
