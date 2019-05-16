@@ -21,8 +21,22 @@ db.sequelize = sequelize;
  
 
 
-//role
-db.role_backend = require('../model/role/role.modal')(sequelize, Sequelize);
-db.action_backend = require('../model/role/action.modal')(sequelize, Sequelize);
+//role backend
+db.role_backend = require('../model/role.modal')(sequelize, Sequelize);
+db.action_backend = require('../model/action.modal')(sequelize, Sequelize);
+
+
+//role frontend
+
+db.role_front = require('../model/role_front')(sequelize, Sequelize);
+db.action_front = require('../modal')
+
+
+
+
+
 
 module.exports = db;
+
+
+

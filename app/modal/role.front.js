@@ -3,6 +3,12 @@ module.exports = (sequelize, Sequelize) => {
         name : {
             type: Sequelize.STRING
         },
+        type: {
+            type: Sequelize.STRING
+        },
+        action_id: {
+            type: Sequelize.INTEGER
+        },
         roleallcondition : {
             type: Sequelize.TEXT('long')
         },
