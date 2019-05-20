@@ -1,6 +1,7 @@
 const db = require('../config/db.config');
 const Role = db.role_backend;
 const Role_front = db.role_front;
+const Action = db.action_backend;
 const Sequelize = require('sequelize');
 const OP = Sequelize.Op;
 const jsonmodel = require('./jsonmodel')
@@ -205,4 +206,57 @@ exports.delete =(req, res, next)=>{
 
 
 
+}
+
+
+exports.createAction = (req, res, next)=>{
+    masuk = JSON.stringify(req.body.action)
+    Action.create({
+        name: req.body.name,
+        action: masuk
+    }).then(()=>{
+        // console.log(masuk)
+        res.status(200).send("New Action Created")
+    })
+}
+
+exports.updateAction = (req, res, next)=>{
+    masuk = JSON.stringify(req.body.action)
+    const id = req.params.profileId
+    Action.update({
+        name: req.body.name,
+        action : masuk
+    }, {
+        where: {id: id}
+    }).then(data =>{
+        res.status(200).send("Action Updated")
+    })
+}
+
+
+exports.deleteAction = (req, res, next)=>{
+    const id = req.params.profileId
+    Action.destroy({
+        where: {id : id}
+    }).then(data=>{
+        res.status(200).send("Action ID " +id+" deleted")
+    })
+
+}
+
+
+exports.findActionAll = (req, res, next)=>{
+    Action.findAll({}).then(data=>{
+        res.status(200).send(data);
+    })
+}
+
+
+exports.findActionById = (req, res, next)=> {
+    const id = req.params.profileId;
+    Action.findOne({
+        where: {id : id}
+    }).then(data =>{
+        res.status(200).send(data)
+    })
 }
