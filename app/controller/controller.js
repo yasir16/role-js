@@ -58,11 +58,11 @@ exports.create = (req, res, next) =>{
 
 
 
-    masuk = JSON.stringify(object)
+    
 
     Role.create({
         name: req.body.name,
-        roleallcondition: masuk
+        roleallcondition: JSON.stringify(object)
     }).then(()=>{
         // console.log(masuk)
         console.log("All For Backend Process Created ")
@@ -87,8 +87,8 @@ exports.get = (req, res, next)=>{
     //     res.send(data);
     // } )
 
-    Role_front.findAll().then(data => {
-        res.send(data);
+    Role_front.findAll({attributes:{exclude: ['roleallcondition']}}).then(data => {
+        res.status(200).send(data);
     } )
 }
 
@@ -166,15 +166,14 @@ exports.edit = (req, res, next)=> {
 
 
 
-    masuk = JSON.stringify(object)
+    
 
     Role.update({
         name: req.body.name,
-        roleallcondition: masuk
+        roleallcondition: JSON.stringify(object)
     },{
         where: {id : id}
     }).then(()=>{
-        console.log(masuk)
         console.log("All For Backend Process Created ")
     })
 
@@ -210,10 +209,10 @@ exports.delete =(req, res, next)=>{
 
 
 exports.createAction = (req, res, next)=>{
-    masuk = JSON.stringify(req.body.action)
+     
     Action.create({
         name: req.body.name,
-        action: masuk
+        action: JSON.stringify(req.body.action)
     }).then(()=>{
         // console.log(masuk)
         res.status(200).send("New Action Created")
@@ -221,11 +220,11 @@ exports.createAction = (req, res, next)=>{
 }
 
 exports.updateAction = (req, res, next)=>{
-    masuk = JSON.stringify(req.body.action)
+     
     const id = req.params.profileId
     Action.update({
         name: req.body.name,
-        action : masuk
+        action : JSON.stringify(req.body.action)
     }, {
         where: {id: id}
     }).then(data =>{
