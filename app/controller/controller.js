@@ -93,7 +93,7 @@ exports.get = (req, res, next)=>{
 }
 
 exports.getId = (req, res, next)=>{
-    Role.findOne({where : {id:req.params.profileId}}).then(data => {
+    Role_front.findOne({where : {id:req.params.profileId}}).then(data => {
         var datas = data;
         var role = JSON.parse(data.roleallcondition)
 
