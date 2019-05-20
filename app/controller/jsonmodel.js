@@ -8,7 +8,7 @@ module.exports = {
             name : rule.name,
             type : rule.type,
             action_id : rule.action_id,
-            roleallcondition : condition
+            rule : condition
         }
         return datas;
     },
