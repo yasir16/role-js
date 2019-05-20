@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const Role = sequelize.define('role_backend', {
+    const Role = sequelize.define('role_front', {
         name : {
             type: Sequelize.STRING
         },

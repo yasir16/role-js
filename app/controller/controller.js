@@ -63,17 +63,18 @@ exports.create = (req, res, next) =>{
         name: req.body.name,
         roleallcondition: masuk
     }).then(()=>{
-        console.log(masuk)
+        // console.log(masuk)
         console.log("All For Backend Process Created ")
     })
 
+    test = JSON.stringify(req.body.rule)
+    console.log(test)
     Role_front.create({
         name: req.body.name,
         type: req.body.type,
         action_id: req.body.action_id,
-        rules: [{
-            roleallcondition: JSON.stringify(req.body.conditions)
-        }]
+        roleallcondition: test
+        
     }).then(test => {
         res.status(200).send("New Rules created")
     })
@@ -81,7 +82,11 @@ exports.create = (req, res, next) =>{
 
 
 exports.get = (req, res, next)=>{
-    Role.findAll().then(data => {
+    // Role.findAll().then(data => {
+    //     res.send(data);
+    // } )
+
+    Role_front.findAll().then(data => {
         res.send(data);
     } )
 }
@@ -104,13 +109,9 @@ exports.edit = (req, res, next)=> {
         name: req.body.name,
         type: req.body.type,
         action_id: req.body.action_id,
-        rules: [{
-            roleallcondition: JSON.stringify(req.body.conditions)
-        },
-    {
-        where: {id: id}    
-    }]
-    }).then(test => {
+        roleallcondition: JSON.stringify(req.body.rule),
+        
+    }, {where: {id : id}}).then(test => {
         res.status(200).send("Rules Updated")
     })
 
@@ -146,13 +147,13 @@ exports.edit = (req, res, next)=> {
 
 
     // console.log(vari_nama)
-    fs.writeFile('allVarname.json', vari_nama, err=>{
-        if(err){
-            console.log('Error : ', err)
-        } else {
-            console.log('Succesfully wrote file')
-        }
-    })
+    // fs.writeFile('allVarname.json', vari_nama, err=>{
+    //     if(err){
+    //         console.log('Error : ', err)
+    //     } else {
+    //         console.log('Succesfully wrote file')
+    //     }
+    // })
 
     object.event= {
         "type": req.body.action_id,
@@ -176,5 +177,32 @@ exports.edit = (req, res, next)=> {
         console.log("All For Backend Process Created ")
     })
 
+    
    
+}
+
+
+exports.delete =(req, res, next)=>{
+    const id = req.params.profileId;
+    Role.destroy({
+        where: {
+            id : id
+        }
+    }).then(data=>{
+        // res.status(200).send("Role backend with number ID "+id+" deleted")
+
+        Role_front.destroy({
+            where: {
+                id : id
+            }
+        }).then(data=>{
+            res.status(200).send("Role frontend with number ID "+id+" deleted")
+        })
+    })
+
+
+    
+
+
+
 }
