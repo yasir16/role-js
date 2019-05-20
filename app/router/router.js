@@ -24,6 +24,6 @@ module.exports = function(app){
 
     app.get('/api/action/Action/:profileId', router.findActionById);
 
-    app.delete('/api/action/Action/:profileId', router.delete);    
+    app.delete('/api/action/Action/:profileId', router.deleteAction);    
 
 }
