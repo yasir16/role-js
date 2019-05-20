@@ -5,6 +5,7 @@ const Action = db.action_backend;
 const Sequelize = require('sequelize');
 const OP = Sequelize.Op;
 const jsonmodel = require('./jsonmodel')
+const jsonmodel2 = require('./jsonmodel2')
 
 
 exports.create = (req, res, next) =>{
@@ -245,7 +246,10 @@ exports.deleteAction = (req, res, next)=>{
 
 
 exports.findActionAll = (req, res, next)=>{
-    Action.findAll({}).then(data=>{
+    Action.findAll({attributes:{exclude: ['action']}}).then(data=>{
+        // var datas = data;
+        // var action = JSON.parse(data.action);
+        // jsonmodel2.set(datas, action)
         res.status(200).send(data);
     })
 }
@@ -256,6 +260,9 @@ exports.findActionById = (req, res, next)=> {
     Action.findOne({
         where: {id : id}
     }).then(data =>{
-        res.status(200).send(data)
+        var datas = data;
+        var action = JSON.parse(data.action);
+        jsonmodel2.set(datas, action)
+        res.status(200).send(jsonmodel2.get());
     })
 }
