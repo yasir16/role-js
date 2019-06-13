@@ -316,9 +316,11 @@ exports.createSchedule = (req, res, next)=>{
 
 
 exports.findAll1= (req, res, next)=>{
-    Action1.findAll().then(data=>{
-        var test= jsonmodel3.set(data);
-        res.status(200).send(test);
+    Action1.findAll({
+        attributes: { exclude: ['action'] }
+    }).then(data=>{
+        
+        res.status(200).send(data);
     })
 }
 
