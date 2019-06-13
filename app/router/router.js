@@ -39,4 +39,6 @@ module.exports = function(app){
 
     app.patch('/api/action/schedule/:profileId', router.editSchedule);
 
+    app.delete('/api/action/schedule/:profileId', router.deleteId);
+
 }
