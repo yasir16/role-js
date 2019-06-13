@@ -3,6 +3,9 @@ module.exports = (sequelize, Sequelize) => {
         status : {
             type : Sequelize.BOOLEAN
         },
+        type : {
+            type : Sequelize.INTEGER
+        },
         name : {
             type : Sequelize.STRING
         },

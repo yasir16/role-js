@@ -299,6 +299,7 @@ exports.createSchedule = (req, res, next)=>{
     })
 
     Action1.create({
+        type: req.body.type,
         status: req.body.status,
         name: req.body.name,
         time: req.body.time,
