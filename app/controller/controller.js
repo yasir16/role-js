@@ -304,7 +304,7 @@ exports.createSchedule = (req, res, next)=>{
         time: req.body.time,
         date: req.body.date,
         day: req.body.day.join(','),
-        action: JSON.stringify(newValue)
+        action: JSON.stringify(action)
         // action: req.body.action
     }).then(()=>{
         res.status(200).send("New Schedule Created")
