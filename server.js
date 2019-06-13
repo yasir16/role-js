@@ -3,6 +3,7 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
+var python = require('python-shell');
 app.use(bodyParser.json())
 
 
@@ -112,29 +113,82 @@ const schedule = require('node-schedule');
 Action1.findAll({
 
 }).then(data =>{
-    console.log(data[0].time)
+    // console.log(data[0].time)
 
     for(var i=0; i<data.length; i++){
-        var a = '*'
-        var b = '*'
-        var c = '*'
-        var d = '*'
-        var e = '*'
-        var f = '*'
-
-        var time = data[i].time;
-        yas = time.split(':')
-        console.log(yas[0]+" "+yas[1]+" "+yas[2])
-
-
-
-        var date = data[i].date
+        var a = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
+        var b = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
+        var c = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
+        var d = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
+        var e = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
+        var f = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
 
         
 
-        // var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d+' '+e+' '+f, function(){
-        //     console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
-        //   });
+        var time = data[i].time;
+        yas = time.split(':')
+        
+        console.log(a(yas[0])+" "+b(yas[1])+" "+c(yas[2]))
+        
+        var date = data[i].date;
+        say = date.split(':')
+        
+
+        console.log(d(say[0])+" "+e(say[1])+" "+f(say[2]))
+
+        
+
+        var panjang = JSON.parse(data[i].action);
+        console.log(panjang.length);
+        var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d+' '+e+' '+f, function(){
+            // console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
+
+            for(var i = 0; i<panjang.length; i++){
+                if (panjang[i].type === "Control"){
+                    let options = {
+                        mode: 'text',
+                        // pythonPath: 'path/to/python',
+                        // pythonOptions: ['-u'], // get print results in real-time
+                        scriptPath: 'app/controller/dummy_pdu_1',
+                        args: ['--eq_type', panjang[i].device_type, '--eq_id', panjang[i].id ,'--varname', panjang[i].var_name  , '--value', panjang[i].value]
+                    };
+
+                    python.PythonShell.run('Control_Equipment.py', options, function (err, data) {
+                        if (err) throw err;
+                        console.log(data);
+                
+                
+                
+                    });
+                }else{
+                    console.log("SABAR YAAA MASIH DI USAHAKAN ")
+                }
+            }
+          });
 
     }
 })

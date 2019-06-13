@@ -1,0 +1,249 @@
+{
+    "newValue": [
+        {
+            "var_name": "inlet_voltage",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "V",
+            "category": "INLET",
+            "id_profile": 1,
+            "value": 25.94
+        },
+        {
+            "var_name": "inlet_current",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "A",
+            "category": "INLET",
+            "id_profile": 1,
+            "value": 73.96
+        },
+        {
+            "var_name": "inlet_power",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "W",
+            "category": "INLET",
+            "id_profile": 1,
+            "value": 75.61
+        },
+        {
+            "var_name": "temperature",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "C",
+            "category": "ENVIRONMENT",
+            "id_profile": 1,
+            "value": 89.58
+        },
+        {
+            "var_name": "humidity",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "%",
+            "category": "ENVIRONMENT",
+            "id_profile": 1,
+            "value": 28.73
+        },
+        {
+            "var_name": "outlet_1_voltage",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "V",
+            "category": "OUTLET_VOLTAGE",
+            "outlet_id": 1,
+            "id_profile": 1,
+            "value": 18.08
+        },
+        {
+            "var_name": "outlet_1_current",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "A",
+            "category": "OUTLET_CURRENT",
+            "outlet_id": 1,
+            "id_profile": 1,
+            "value": 78.41
+        },
+        {
+            "var_name": "outlet_1_power",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "W",
+            "category": "OUTLET_POWER",
+            "outlet_id": 1,
+            "id_profile": 1,
+            "value": 95.68
+        },
+        {
+            "var_name": "outlet_1_status",
+            "read_this": 1,
+            "write_this": 1,
+            "unit": null,
+            "category": "OUTLET_STATUS",
+            "outlet_id": 1,
+            "id_profile": 1,
+            "value": 0
+        },
+        {
+            "var_name": "outlet_2_voltage",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "V",
+            "category": "OUTLET_VOLTAGE",
+            "outlet_id": 2,
+            "id_profile": 1,
+            "value": 73.01
+        },
+        {
+            "var_name": "outlet_2_current",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "A",
+            "category": "OUTLET_CURRENT",
+            "outlet_id": 2,
+            "id_profile": 1,
+            "value": 86.59
+        },
+        {
+            "var_name": "outlet_2_power",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "W",
+            "category": "OUTLET_POWER",
+            "outlet_id": 2,
+            "id_profile": 1,
+            "value": 5.42
+        },
+        {
+            "var_name": "outlet_2_status",
+            "read_this": 1,
+            "write_this": 1,
+            "unit": null,
+            "category": "OUTLET_STATUS",
+            "outlet_id": 2,
+            "id_profile": 1,
+            "value": 1
+        },
+        {
+            "var_name": "outlet_3_voltage",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "V",
+            "category": "OUTLET_VOLTAGE",
+            "outlet_id": 3,
+            "id_profile": 1,
+            "value": 40.67
+        },
+        {
+            "var_name": "outlet_3_current",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "A",
+            "category": "OUTLET_CURRENT",
+            "outlet_id": 3,
+            "id_profile": 1,
+            "value": 20.71
+        },
+        {
+            "var_name": "outlet_3_power",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "W",
+            "category": "OUTLET_POWER",
+            "outlet_id": 3,
+            "id_profile": 1,
+            "value": 37.63
+        },
+        {
+            "var_name": "outlet_3_status",
+            "read_this": 1,
+            "write_this": 1,
+            "unit": null,
+            "category": "OUTLET_STATUS",
+            "outlet_id": 3,
+            "id_profile": 1,
+            "value": 0
+        },
+        {
+            "var_name": "outlet_4_voltage",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "V",
+            "category": "OUTLET_VOLTAGE",
+            "outlet_id": 4,
+            "id_profile": 1,
+            "value": 9.51
+        },
+        {
+            "var_name": "outlet_4_current",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "A",
+            "category": "OUTLET_CURRENT",
+            "outlet_id": 4,
+            "id_profile": 1,
+            "value": 63.38
+        },
+        {
+            "var_name": "outlet_4_power",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "W",
+            "category": "OUTLET_POWER",
+            "outlet_id": 4,
+            "id_profile": 1,
+            "value": 33.53
+        },
+        {
+            "var_name": "outlet_4_status",
+            "read_this": 1,
+            "write_this": 1,
+            "unit": null,
+            "category": "OUTLET_STATUS",
+            "outlet_id": 4,
+            "id_profile": 1,
+            "value": 1
+        },
+        {
+            "var_name": "outlet_5_voltage",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "V",
+            "category": "OUTLET_VOLTAGE",
+            "outlet_id": 5,
+            "id_profile": 1,
+            "value": 34.99
+        },
+        {
+            "var_name": "outlet_5_current",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "A",
+            "category": "OUTLET_CURRENT",
+            "outlet_id": 5,
+            "id_profile": 1,
+            "value": 65.58
+        },
+        {
+            "var_name": "outlet_5_power",
+            "read_this": 1,
+            "write_this": -1,
+            "unit": "W",
+            "category": "OUTLET_POWER",
+            "outlet_id": 5,
+            "id_profile": 1,
+            "value": 52.56
+        },
+        {
+            "var_name": "outlet_5_status",
+            "read_this": 1,
+            "write_this": 1,
+            "unit": null,
+            "category": "OUTLET_STATUS",
+            "outlet_id": 5,
+            "id_profile": 1,
+            "value": 0
+        }
+    ]
+}

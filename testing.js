@@ -131,6 +131,34 @@ var schedule = require('node-schedule');
 //   console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
 // });
 
-var j = schedule.scheduleJob({ minute:8, second: 0}, function(){
-  console.log('Time for tea!');
-});
+// var j = schedule.scheduleJob({ minute:8, second: 0}, function(){
+//   console.log('Time for tea!');
+// });
+
+
+  var a = '*'
+  var b = '*'
+  var c = '*'
+        var d = function(date){
+            if(date){
+                return date
+            }else{return '*'}
+        }
+        var e = '*'
+        var f = '*'
+
+        var date = ''
+
+        // var time = data[i].time;
+        // yas = time.split(':')
+        // console.log(yas[0]+" "+yas[1]+" "+yas[2])
+
+        a = '1'
+        b = '*'
+        c = '*'
+  
+        console.log(d(date))
+
+        // var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d(date)+' '+e+' '+f, function(){
+        //     console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
+        //   });
