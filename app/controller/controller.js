@@ -343,15 +343,15 @@ exports.deleteId = (req, res, next)=>{
 
 exports.editSchedule= (req, res, next)=>{
     var newValue = []
-    req.body.action.map(d=>{
-        newValue.push({
-            device_type: d.device_type,
-            device_name : d.device_name,
-            variable : d.variable,
-            action_type: d.action_type,
-            value: d.value
-        })
-    })
+    // req.body.action.map(d=>{
+    //     newValue.push({
+    //         device_type: d.device_type,
+    //         device_name : d.device_name,
+    //         variable : d.variable,
+    //         action_type: d.action_type,
+    //         value: d.value
+    //     })
+    // })
 
     Action1.update({
         status: req.body.status,
