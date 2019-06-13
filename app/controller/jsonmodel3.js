@@ -4,6 +4,7 @@ module.exports = {
     set : (schedule) => {
          datas = {
             id: schedule.id,
+            type: schedule.type,
             status: schedule.status,
             name: schedule.name,
             time: schedule.time,

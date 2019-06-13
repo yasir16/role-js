@@ -359,7 +359,7 @@ exports.editSchedule= (req, res, next)=>{
         time: req.body.time,
         date: req.body.date,
         day: req.body.day.join(','),
-        action: JSON.stringify(newValue)
+        action: JSON.stringify(req.body.action)
         // action: req.body.action
     }, {where: {id: req.params.profileId}}).then(()=>{
         res.status(200).send("Schedule Updated")
