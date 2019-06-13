@@ -2,10 +2,12 @@ const db = require('../config/db.config');
 const Role = db.role_backend;
 const Role_front = db.role_front;
 const Action = db.action_backend;
+const Action1 = db.action1_backend;
 const Sequelize = require('sequelize');
 const OP = Sequelize.Op;
 const jsonmodel = require('./jsonmodel')
 const jsonmodel2 = require('./jsonmodel2')
+const jsonmodel3 = require('./jsonmodel3')
 
 
 exports.create = (req, res, next) =>{
@@ -264,5 +266,101 @@ exports.findActionById = (req, res, next)=> {
         var action = JSON.parse(data.action);
         jsonmodel2.set(datas, action)
         res.status(200).send(jsonmodel2.get());
+    })
+}
+
+exports.yasir = [];
+
+exports.createSchedule = (req, res, next)=>{
+    // var name = req.body.name;
+    // var time = req.body.time;
+    // // var time = "10:54:07";
+    // var date = req.body.date;
+    // // var date = " 2012-11-04";
+    // var every = req.body.every;
+    
+    //time seperator
+    //lalu di define hour and minute
+
+    //setelah di define masukin di json array, terus di keluarkan(exports) ke server.js
+    //setelah di server.js masukin di schedule.schedulejob
+
+    // var array1 = time.split(':');
+    // var array2 = date.split('-');
+    var newValue = []
+    req.body.action.map(d=>{
+        newValue.push({
+            device_type: d.device_type,
+            device_name : d.device_name,
+            variable : d.variable,
+            action_type: d.action_type,
+            value: d.value
+        })
+    })
+
+    Action1.create({
+        status: req.body.status,
+        name: req.body.name,
+        time: req.body.time,
+        date: req.body.date,
+        day: req.body.day.join(','),
+        action: JSON.stringify(newValue)
+        // action: req.body.action
+    }).then(()=>{
+        res.status(200).send("New Schedule Created")
+    })
+
+
+}
+
+
+exports.findAll1= (req, res, next)=>{
+    Action1.findAll().then(data=>{
+        res.status(200).send(data);
+    })
+}
+
+exports.findById = (req, res, next)=>{
+    Action1.findOne({
+        where: {id : req.params.profileId}
+    }).then(data =>{
+        var test= jsonmodel3.set(data);
+        res.status(200).send(test)
+    })
+}
+
+exports.deleteId = (req, res, next)=>{
+    const id = req.params.profileId
+    Action1.destroy({
+        where: {id : id}
+    }).then(data=>{
+        res.status(200).send("Action ID " +id+" deleted")
+    })
+
+}
+
+
+exports.editSchedule= (req, res, next)=>{
+    var newValue = []
+    req.body.action.map(d=>{
+        newValue.push({
+            device_type: d.device_type,
+            device_name : d.device_name,
+            variable : d.variable,
+            action_type: d.action_type,
+            value: d.value
+        })
+    })
+
+    Action1.update({
+        status: req.body.status,
+        name: req.body.name,
+        time: req.body.time,
+        date: req.body.date,
+        day: req.body.day.join(','),
+        action: JSON.stringify(newValue)
+        // action: req.body.action
+    }, {where: {id: req.params.profileId}}).then(()=>{
+        res.status(200).send("Schedule Updated")
     })
 }

@@ -33,6 +33,12 @@ db.role_front = require('../modal/role.front.js')(sequelize, Sequelize);
 
 
 
+//schedule
+
+db.action1_backend = require('../modal/action1.modal')(sequelize, Sequelize);
+
+
+
 
 
 

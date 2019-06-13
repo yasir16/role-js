@@ -26,4 +26,17 @@ module.exports = function(app){
 
     app.delete('/api/action/Action/:profileId', router.deleteAction);    
 
+
+
+
+    //schedule
+
+    app.get('/api/action/schedule/:profileId', router.findById);
+
+    app.get('/api/action/schedule', router.findAll1);
+
+    app.post('/api/action/schedule', router.createSchedule);
+
+    app.patch('/api/action/schedule/:profileId', router.editSchedule);
+
 }
