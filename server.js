@@ -130,6 +130,8 @@ Action1.findAll({
 
         var date = data[i].date
 
+        
+
         // var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d+' '+e+' '+f, function(){
         //     console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
         //   });
