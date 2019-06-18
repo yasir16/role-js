@@ -135,7 +135,7 @@ exports.edit = (req, res, next)=> {
 
     for (var i = 0; i<req.body.rule.length; i++){
         data [i] = {
-            fact: req.body.rule[i].var_name+"_"+req.body.rule[i].device_name+"_"+req.body.rule[i].device_type,
+            fact: req.body.rule[i].var_name+"_"+req.body.rule[i].id_profile+"_"+req.body.rule[i].device_type,
             operator: req.body.rule[i].operator,
             value: req.body.rule[i].value1,
             value2: req.body.rule[i].value2
@@ -143,7 +143,7 @@ exports.edit = (req, res, next)=> {
         object.conditions[type].push(data[i]);
 
         var nama;
-        nama = req.body.rule[i].var_name+"_"+req.body.rule[i].device_name+"_"+req.body.rule[i].device_type
+        nama = req.body.rule[i].var_name+"_"+req.body.rule[i].id_profile+"_"+req.body.rule[i].device_type
         object1[nama]= "";
         vari_nama = JSON.stringify(object1);
 
