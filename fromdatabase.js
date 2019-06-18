@@ -26,7 +26,7 @@ var database;
 
 
 const fs = require('fs')
-var db = require('../config/db.config');
+var db = require('./app/config/db.config');
 var Role = db.role_backend;
 var jsonfile = require('./jsonfile.js')
 const all = {};
@@ -160,7 +160,7 @@ all[allRole]= [];
             
             // console.log(dat)
             // jsonfile.set(dat)
-
+            console.log(data.length)
             
             // console.log(JSON.parse(halo))
             for (var i = 0; i< data.length; i++){
@@ -168,6 +168,7 @@ all[allRole]= [];
                 all[allRole].push(semua)
                 halo = JSON.stringify(all.Role[0]);
                 var dat = JSON.stringify(all)
+                
             }
             
             
@@ -178,7 +179,7 @@ all[allRole]= [];
                     console.log('Succesfully wrote file')
                 }
             })
-            return halo;
+            
         })
         
     

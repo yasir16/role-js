@@ -54,6 +54,7 @@ socket.on('pdu_datas', async (datas) => {
 socket.on('battery_datas', async (datas) => {               
     var data = JSON.parse(datas);
     getFact.newValue(data.newValue, 2)
+
     // await updateValue(data,Latest_battery,Log_battery)
 })
 
@@ -163,7 +164,7 @@ Action1.findAll({
         
 
         var panjang = JSON.parse(data[i].action);
-        console.log(panjang.length);
+        // console.log(panjang.length);
         var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d+' '+e+' '+f, function(){
             // console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
 
@@ -174,7 +175,7 @@ Action1.findAll({
                         // pythonPath: 'path/to/python',
                         // pythonOptions: ['-u'], // get print results in real-time
                         scriptPath: 'app/controller/dummy_pdu_1',
-                        args: ['--eq_type', panjang[i].device_type, '--eq_id', panjang[i].id ,'--varname', panjang[i].var_name  , '--value', panjang[i].value]
+                        args: ['--eq_type', panjang[i].device_type, '--eq_id', panjang[i].id ,'--varname', panjang[i].var_name  , '--value', panjang[i].value, '--alert', panjang[i].alert]
                     };
 
                     python.PythonShell.run('Control_Equipment.py', options, function (err, data) {
@@ -184,8 +185,19 @@ Action1.findAll({
                 
                 
                     });
-                }else{
-                    console.log("SABAR YAAA MASIH DI USAHAKAN ")
+                }else if(panjang[i].type === "alert"){
+                    let options = {
+                        mode: 'text',
+                        scriptPath: 'app/controller/dummy_pdu_1',
+                        args: ['--value', panjang[i].value]
+                    };
+
+                    python.PythonShell.run('Control_Equipment.py', options, function (err, data){
+                        if (err) throw err;
+                        console.log(data)
+                    })
+
+                    //console.log("SABAR YAAA MASIH DI USAHAKAN ")
                 }
             }
           });

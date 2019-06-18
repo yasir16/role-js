@@ -1,6 +1,11 @@
 import time, os, random
 import sys, argparse, ast, json
 
+import socketio
+
+sio = socketio.Client()
+sio.connect('http://192.168.0.63:5001')
+
 _FINISH = False
 ThisFolder = os.path.abspath('.')
 ParentFolder = os.path.abspath('..')
@@ -21,9 +26,13 @@ def write(eq_type, eq_id, varname, value):
         #with open('~/backendrack/bakend/smartrack-backend/app/controller/dummy_pdu_1', 'w') as file:
             file.write(json.dumps(data, indent=4))
         print(1)
+
+        sio.emit('alert_in_data', "1")
+        sio.emit('alert_in_data', "1")
     except:
         raise
         print(0)
+        sio.emit('alert_in_data', "all Not Ok It means O as symbolic ")
 
 # Main Function
 def main(args):
@@ -37,6 +46,7 @@ def main(args):
     except:
         raise
         print(0)
+        sio.emit('alert_in_data', "all Not Ok It means O as symbolic ")
 
 
 if __name__ == '__main__':
@@ -45,6 +55,7 @@ if __name__ == '__main__':
     parser.add_argument("--eq_id", type=int, help="id of the equipment (id_profile)", default=None)
     parser.add_argument("--varname", type=str, help="Variable Name", default=None)
     parser.add_argument("--value", type=str, help="Variable Value", default=None)
+    parser.add_argument("--alert", type=str, help="Variable Value", default=None)
 
     args = parser.parse_args(sys.argv[1:]);
 

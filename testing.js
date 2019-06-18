@@ -136,29 +136,32 @@ var schedule = require('node-schedule');
 // });
 
 
-  var a = '*'
-  var b = '*'
-  var c = '*'
-        var d = function(date){
-            if(date){
-                return date
-            }else{return '*'}
-        }
-        var e = '*'
-        var f = '*'
+  // var a = '*'
+  // var b = '*'
+  // var c = '*'
+  //       var d = function(date){
+  //           if(date){
+  //               return date
+  //           }else{return '*'}
+  //       }
+  //       var e = '*'
+  //       var f = '*'
 
-        var date = ''
+  //       var date = ''
 
-        // var time = data[i].time;
-        // yas = time.split(':')
-        // console.log(yas[0]+" "+yas[1]+" "+yas[2])
+  //       // var time = data[i].time;
+  //       // yas = time.split(':')
+  //       // console.log(yas[0]+" "+yas[1]+" "+yas[2])
 
-        a = '1'
-        b = '*'
-        c = '*'
+  //       a = '1'
+  //       b = '*'
+  //       c = '*'
   
-        console.log(d(date))
+  //       console.log(d(date))
 
-        // var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d(date)+' '+e+' '+f, function(){
-        //     console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
-        //   });
+  //       // var j = schedule.scheduleJob(a+' '+b+' '+c+' '+d(date)+' '+e+' '+f, function(){
+  //       //     console.log('The answer to life, the universe, and everything!'+ jan+':'+min+':'+sec);
+  //       //   });
+const obj = { id:1, name:'jhon'}
+obj.location="medan"
+console.log(obj)
