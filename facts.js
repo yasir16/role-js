@@ -19,21 +19,19 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
     })
 })
 
-let facts = [
+let facts = 
     {
         humidity_5_PDU : 112,
         humidity_4_PDU: 12,
         load_3_UPS : 12
-    },
-    
-]
+    }
 
 
 
 // engine.getEngine(facts[0])
 // }
 
-engine.run(facts[0]).then(events => {
+engine.run(facts).then(events => {
     events.map(event => console.log(event.params.action_id))
 }).catch(console.log)
 
