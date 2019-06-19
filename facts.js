@@ -33,7 +33,7 @@ let facts = [
 // engine.getEngine(facts[0])
 // }
 
-engine.run(facts).then(events => {
+engine.run(facts[0]).then(events => {
     events.map(event => console.log(event.params.action_id))
 }).catch(console.log)
 
