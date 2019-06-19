@@ -31,6 +31,6 @@ module.exports = {
             events.map(event => console.log(event.params.action_id))
         }).catch(console.log)
 
-        return database.set(facts)
+        // return database.set(facts)
     }
 }
