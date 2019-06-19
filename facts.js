@@ -8,7 +8,7 @@ const engine = require('./role1.js')
 
 let facts = [
     {
-        humidity_5_PDU : 45,
+        humidity_5_PDU : 112,
         humidity_4_PDU: 12,
         load_3_UPS : 12
     },
