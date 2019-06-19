@@ -29,8 +29,8 @@ exports.create = (req, res, next) =>{
         data [i] = {
             fact: req.body.rule[i].var_name+"_"+req.body.rule[i].id_profile+"_"+req.body.rule[i].device_type,
             operator: req.body.rule[i].operator,
-            value: req.body.rule[i].value1,
-            value2: req.body.rule[i].value2
+            value: req.body.rule[i].value
+            // value2: req.body.rule[i].value2
         }
         object.conditions[type].push(data[i]);
 
@@ -137,8 +137,8 @@ exports.edit = (req, res, next)=> {
         data [i] = {
             fact: req.body.rule[i].var_name+"_"+req.body.rule[i].id_profile+"_"+req.body.rule[i].device_type,
             operator: req.body.rule[i].operator,
-            value: req.body.rule[i].value1,
-            value2: req.body.rule[i].value2
+            value: req.body.rule[i].value
+            // value2: req.body.rule[i].value2
         }
         object.conditions[type].push(data[i]);
 

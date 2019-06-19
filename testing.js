@@ -167,8 +167,15 @@
 // console.log(obj)
 
 
-var db = require('./app/config/db.config');
-var role = db.role_backend;
-const Profile = db.action1_backend;
+// var db = require('./app/config/db.config');
+// var role = db.role_backend;
+// const Profile = db.action1_backend;
 
-Profile.findAll().then(data=>{console.log(data)})
+// Profile.findAll().then(data=>{console.log(data)})
+
+
+var role = '{\"conditions\":{\"any\":[{\"fact\":\"outlet_1_voltage_3_PDU\",\"operator\":\"equal\",\"value\":5000,\"value2\":\"\"}]},\"event\":{\"type\":1,\"params\":{\"message\":\"Player has fouled out!\",\"action_id\":1}}}'
+
+
+var tt = JSON.parse(role)
+console.log(tt.conditions)

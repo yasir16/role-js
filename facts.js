@@ -8,7 +8,7 @@ const engine = require('./role1.js')
 
 let facts = [
     {
-        outlet_1_voltage_3_PDU : 400000,
+        humidity_5_PDU : 400000,
         volt_dunno2_dunno2: 20,
         volt_dunno232432_dunno34: 30
     },
