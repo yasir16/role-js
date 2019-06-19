@@ -15,7 +15,7 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
         var aw = JSON.parse(data.roleallcondition)
         console.log(aw)
         // console.log(aw.conditions.any)
-        engine.addRule(aw)
+        engine.addRule(data.roleallcondition)
     })
 })
 
