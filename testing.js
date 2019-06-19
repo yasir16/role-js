@@ -193,8 +193,9 @@ let engine = new Engine()
 // define a rule for detecting the player has exceeded foul limits.  Foul out any player who:
 // (has committed 5 fouls AND game is 40 minutes) OR (has committed 6 fouls AND game is 48 minutes)
 engine.addRule({"conditions":{"all":[{"fact":"humidity_5_PDU","operator":"equal","value":112}]},"event":{"type":2,"params":{"message":"Player has fouled out!","action_id":2}}})
-engine.addRule({"conditions":{"any":[{"fact":"humidity_5_PDU","operator":"equal","value":2},{"fact":"humidity_5_PDU","operator":"equal","value":1}]},"event":{"type":4,"params":{"message":"Player has fouled out!","action_id":4}}})
+engine.addRule({"conditions":{"any":[{"fact":"humidity_6_PDU","operator":"equal","value":2},{"fact":"humidity_5_PDU","operator":"equal","value":1}]},"event":{"type":4,"params":{"message":"Player has fouled out!","action_id":4}}})
 engine.addRule({"conditions":{"all":[{"fact":"humidity_4_PDU","operator":"equal","value":1212}]},"event":{"type":3,"params":{"message":"Player has fouled out!","action_id":3}}})
+engine.addRule({"conditions":{"any":[{"fact":"inlet_power_5_PDU","operator":"equal","value":12},{"fact":"outlet_1_current_5_PDU","operator":"equal","value":"q23"}]},"event":{"type":2,"params":{"message":"Player has fouled out!","action_id":2}}})
 /**
  * Define facts the engine will use to evaluate the conditions above.
  * Facts may also be loaded asynchronously at runtime; see the advanced example below
@@ -203,7 +204,10 @@ let facts =
     {
         humidity_5_PDU : 112,
         humidity_4_PDU: 1212,
-        load_3_UPS : 12
+        humidity_6_PDU: 0,
+        load_3_UPS : 12,
+        inlet_power_5_PDU : 0,
+        outlet_1_current_5_PDU : 0 
     }
 
  
