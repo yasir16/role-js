@@ -14,12 +14,19 @@
 var action;
 const fs = require('fs');
 
+var db = require('./app/config/db.config');
+var role = db.role_backend;
+const Profile = db.action1_backend;
 
-let Engine = require('D:/Yasir/Project/smartrack-backend/node_modules/json-rules-engine/dist').Engine
+// Profile.findAll().then(data=>{console.log(data)})
+
+let Engine = require('../role-js/node_modules/json-rules-engine/dist').Engine
 let engine = new Engine() 
 
 module.exports ={
+
     createRule : () => {
+      
         // var test = fs.readFile('all.json', (err,data) => {
         //     if (err) throw err;
         //     let datas = JSON.parse(data);
@@ -50,14 +57,23 @@ module.exports ={
         //     engine.addRule(datae)
         // })
         
-        var raw = fs.readFileSync('all.json');
-        var a = JSON.parse(raw)
+        // var raw = fs.readFileSync('all.json');
+        // var a = JSON.parse(raw)
 
-        for ( var i=0; i<a.Role.length; i++){
-          var condition = JSON.parse(a.Role[i])
-          // console.log(condition)
-          engine.addRule(condition)
-        }
+        role.findAll({attributes : ['roleallcondition']}).then(cuk=>{
+          console.log(cuk)
+          // a.map(data =>{
+
+          // })
+          // for ( var i=0; i<a.Role.length; i++){
+          //   var condition = JSON.parse(a.Role[i])
+          //   // console.log(condition)
+          //   engine.addRule(condition)
+          // }
+
+        })
+
+        
         
 
 

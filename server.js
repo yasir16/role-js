@@ -48,49 +48,49 @@ socket.on ('connect', function() { console.log("socket Connected");});
 
 socket.on('pdu_datas', async (datas) => {                   
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 1)
+    getFact.newValue(data.newValue, "PDU")
 })
 
 socket.on('battery_datas', async (datas) => {               
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 2)
+    getFact.newValue(data.newValue, "Battery")
 
     // await updateValue(data,Latest_battery,Log_battery)
 })
 
 socket.on('rectifier_datas', async (datas) => {
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 3)
+    getFact.newValue(data.newValue, "Rectifier")
     // await updateValue(data,Latest_rectifier,Log_rectifier)
 })
 
 socket.on('ups_datas', async (datas) => {
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 4)
+    getFact.newValue(data.newValue, "UPS")
     // await updateValue(data,Latest_ups,Log_ups)
 })
 
 socket.on('aircond_datas', async (datas) => {
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 5)
+    getFact.newValue(data.newValue, "Aircond")
     // await updateValue(data,Latest_aircond,Log_aircond)
 })
 
 socket.on('sensor_datas', async (datas) => {
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 6)
+    getFact.newValue(data.newValue, "Sensor")
     // await updateValue(data,Latest_sensor,Log_sensor)
 })
 
 socket.on('gpio_datas', async (datas) => {
     var data = JSON.parse(datas);
-    getFact.newValue(data.newValue, 7)
+    getFact.newValue(data.newValue, "GPIO")
     // await updateValue(data,Latest_io,Log_io)
 })
 
 socket.on('control_datas', async(datas) => {
     var data =JSON.parse(datas);
-    getFact.newValue(data.newValue, 8)
+    getFact.newValue(data.newValue, "Control")
     // await controlValue(data,Latest_io,Log_io,Latest_pdu,Log_pdu)
 })
 
