@@ -14,7 +14,7 @@ module.exports = {
         role.findAll({attributes : ['roleallcondition']}).then(a=>{
             a.map(data=> {
                 // console.log(data.roleallcondition.conditions)
-                var aw = data.roleallcondition
+                var aw = JSON.parse(data.roleallcondition)
                 console.log(aw.conditions.any)
                 engine.addRule(aw)
             })
