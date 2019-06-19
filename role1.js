@@ -16,7 +16,7 @@ module.exports = {
                 // console.log(data.roleallcondition.conditions)
                 var aw = JSON.parse(data.roleallcondition)
                 // console.log(aw.conditions)
-                engine.addRule(aw.conditions)
+                engine.addRule(aw)
             })
         })
     },
