@@ -9,7 +9,7 @@ const engine = require('./role1.js')
 let facts = [
     {
         inlet_power_5_PDU : 12,
-        outlet_1_current_5_PDU: q23,
+        outlet_1_current_5_PDU: "q23",
         volt_dunno232432_dunno34: 30
     },
     
