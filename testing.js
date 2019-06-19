@@ -193,6 +193,7 @@ let engine = new Engine()
 // define a rule for detecting the player has exceeded foul limits.  Foul out any player who:
 // (has committed 5 fouls AND game is 40 minutes) OR (has committed 6 fouls AND game is 48 minutes)
 engine.addRule({"conditions":{"all":[{"fact":"humidity_5_PDU","operator":"equal","value":112}]},"event":{"type":2,"params":{"message":"Player has fouled out!","action_id":2}}})
+engine.addRule({"conditions":{"any":[{"fact":"humidity_5_PDU","operator":"equal","value":2},{"fact":"humidity_5_PDU","operator":"equal","value":1}]},"event":{"type":4,"params":{"message":"Player has fouled out!","action_id":4}}})
 engine.addRule({"conditions":{"all":[{"fact":"humidity_4_PDU","operator":"equal","value":1212}]},"event":{"type":3,"params":{"message":"Player has fouled out!","action_id":3}}})
 /**
  * Define facts the engine will use to evaluate the conditions above.
@@ -200,7 +201,7 @@ engine.addRule({"conditions":{"all":[{"fact":"humidity_4_PDU","operator":"equal"
  */
 let facts = 
     {
-        humidity_5_PDU : 2,
+        humidity_5_PDU : 112,
         humidity_4_PDU: 1212,
         load_3_UPS : 12
     }
