@@ -1,10 +1,10 @@
-const engine = require('./role1.js')
+// const engine = require('./role1.js')
 // const databas = require('./fromdatabase.js')
-var db = require('./app/config/db.config');
+var db = require('./app/config/db.config.js');
 var role = db.role_backend;
 
 
-let Engine = require('../role-js/node_modules/json-rules-engine/dist').Engine
+let Engine = require('../role-js/node_modules/json-rules-engine/dist').Engine;
 let engine = new Engine()
 
 
