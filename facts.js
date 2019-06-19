@@ -17,6 +17,6 @@ let facts = [
 
 
 
-engine.getEngine(facts)
+engine.getEngine(facts[0])
 // }
 

@@ -27,7 +27,7 @@ module.exports = {
         const database = require('./jsonfile')
 
 
-        engine.run(facts[0]).then(events => {
+        engine.run(facts).then(events => {
             events.map(event => console.log(event.params.action_id))
         }).catch(console.log)
 
