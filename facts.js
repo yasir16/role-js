@@ -13,40 +13,42 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
     a.map(data=> {
         // console.log(data.roleallcondition.conditions)
         var aw = JSON.parse(data.roleallcondition)
-        // console.log(data.roleallcondition)
+        console.log(data.roleallcondition)
         // console.log(aw.conditions.all)
         engine.addRule(aw)
 
 
-        let facts = 
-            {
-                humidity_5_PDU : 112,
-                humidity_4_PDU: 12,
-                load_3_UPS : 12,
-                inlet_power_5_PDU : 0,
-                outlet_1_current_5_PDU : 0 
-            }
+        // let facts = 
+        //     {
+        //         humidity_5_PDU : 112,
+        //         humidity_4_PDU: 12,
+        //         load_3_UPS : 12,
+        //         inlet_power_5_PDU : 0,
+        //         outlet_1_current_5_PDU : 0 
+        //     }
 
 
-        engine.run(facts).then(events => {
-                events.map(event => console.log(event.params.action_id))
-        }).catch(console.log)
+        // engine.run(facts).then(events => {
+        //         events.map(event => console.log(event.params.action_id))
+        // }).catch(console.log)
     })
 })
 
-// let facts = 
-//     {
-//         humidity_5_PDU : 112,
-//         humidity_4_PDU: 12,
-//         load_3_UPS : 12
-//     }
+let facts = 
+    {
+        humidity_5_PDU : 112,
+        humidity_4_PDU: 12,
+        load_3_UPS : 12,
+        inlet_power_5_PDU : 0,
+        outlet_1_current_5_PDU : 0 
+    }
 
 
 
 // engine.getEngine(facts[0])
 // }
 
-// engine.run(facts).then(events => {
-//     events.map(event => console.log(event.params.action_id))
-// }).catch(console.log)
+engine.run(facts).then(events => {
+    events.map(event => console.log(event.params.action_id))
+}).catch(console.log)
 
