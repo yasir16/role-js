@@ -13,7 +13,9 @@ module.exports = {
     createRule : () => {
         role.findAll({attributes : ['roleallcondition']}).then(a=>{
             a.map(data=> {
-                console.log(data.roleallcondition.conditions)
+                // console.log(data.roleallcondition.conditions)
+                var aw = JSON.parse(data.roleallcondition)
+                console.log(aw.conditions)
             })
         })
     },
