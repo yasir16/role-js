@@ -11,8 +11,10 @@ let engine = new Engine()
 
 module.exports = {
     createRule : () => {
-        role.findAll().then(a=>{
-            console.log(a)
+        role.findAll({attributes : ['roleallcondition']}).then(a=>{
+            a.map(data=> {
+                console.log(data)
+            })
         })
     },
     getEngine : facts =>{
