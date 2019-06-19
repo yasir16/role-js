@@ -15,7 +15,7 @@ module.exports = {
             a.map(data=> {
                 // console.log(data.roleallcondition.conditions)
                 var aw = JSON.parse(data.roleallcondition)
-                console.log(aw)
+                // console.log(aw)
                 engine.addRule(aw)
             })
         })
