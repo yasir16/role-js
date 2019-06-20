@@ -15,10 +15,10 @@ function fromarray(database){
     return database.findAll({attributes : ['roleallcondition']}).then(abs => {
         console.log(abs)
         array.push(abs)
+        var satu = JSON.parse(abs.roleallcondition)
 
-        abs.map(data=>{
-            var aw = JSON.parse(data.roleallcondition)
-            array.push(aw)
+        satu.map(data=>{
+            array.push(data)
 
             return array
         }).catch(err=>{
