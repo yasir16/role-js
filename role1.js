@@ -17,14 +17,14 @@ function fromarray(database){
         array.push(abs)
 
         return array
-        // a.map(data=>{
-        //     var aw = JSON.parse(data.roleallcondition)
-        //     array.push(aw)
+        abs.map(data=>{
+            var aw = JSON.parse(data.roleallcondition)
+            array.push(aw)
 
-        //     return array
-        // }).catch(err=>{
-        //     console.log(err)
-        // })
+            return array
+        }).catch(err=>{
+            console.log(err)
+        })
     })
 
 }
