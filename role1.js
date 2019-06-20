@@ -14,6 +14,9 @@ function fromarray(database){
     
     return database.findAll({attributes : ['roleallcondition']}).then(abs => {
         console.log(abs)
+        array.push(abs)
+
+        return array
         // a.map(data=>{
         //     var aw = JSON.parse(data.roleallcondition)
         //     array.push(aw)
