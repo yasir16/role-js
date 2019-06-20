@@ -261,9 +261,12 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
                 temperature_5_PDU : 23
             }
 
+        var yas 
 
         engine.run(bisa).then(events => {
-                events.map(event => console.log(event.params.action_id))
+                events.map(event => console.log(event.params.action_id)
+                    
+                )
         }).catch(console.log)
     })
 

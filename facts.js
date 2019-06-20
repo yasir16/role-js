@@ -50,7 +50,8 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
 
 
         engine.run(facts).then(events => {
-                events.map(event => console.log(event.params.action_id))
+                events.map(event => {
+                    console.log(event.params.action_id)})
         }).catch(console.log)
     })
 
