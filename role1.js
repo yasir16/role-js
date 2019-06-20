@@ -32,7 +32,7 @@ module.exports = {
     createRule : () => {
 
         fromarray(role).then(function(testing){
-            console.log(testing.length)
+            console.log(testing)
         })
         // role.findAll({attributes : ['roleallcondition']}).then(a=>{
         //     a.map(data=> {
