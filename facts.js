@@ -40,9 +40,9 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
 
         let facts = 
             {
-                humidity_5_PDU : 112,
-                humidity_4_PDU: 12,
-                load_3_UPS : 12,
+                humidity_5_PDU : 1,
+                humidity_4_PDU: 1,
+                load_3_UPS : 1,
                 inlet_power_5_PDU : 0,
                 outlet_1_current_5_PDU : 0,
                 temperature_5_PDU : 23
