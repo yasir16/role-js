@@ -15,7 +15,7 @@ function fromarray(database){
     return database.findAll({attributes : ['roleallcondition']}).then(abs => {
         console.log(abs)
         array.push(abs)
-        var satu = JSON.parse(abs.roleallcondition)
+        var satu = abs.roleallcondition
 
         satu.map(data=>{
             array.push(data)
