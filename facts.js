@@ -2,6 +2,8 @@
 // const databas = require('./fromdatabase.js')
 var db = require('./app/config/db.config.js');
 var role = db.role_backend;
+var action = db.action_backend;
+var python = require('python-shell');
 
 
 // engine.createRule()
@@ -51,6 +53,44 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
 
         engine.run(facts).then(events => {
                 events.map(event => {
+                    var yas = event.params.action_id
+                    action.findOne({
+                        where : {id: yas}
+                    }).then(data=>{
+                        var pes = JSON.parse(data)
+                        pes.map(dat=>{
+                            if (dat.type === "Control"){
+                                let options = {
+                                    mode: 'text',
+                                    // pythonPath: 'path/to/python',
+                                    // pythonOptions: ['-u'], // get print results in real-time
+                                    scriptPath: 'app/controller/dummy_pdu_1',
+                                    args: ['--eq_type', dat.device_type, '--eq_id', dat.id ,'--varname', dat.var_name  , '--value', dat.value, '--alert', dat.alert]
+                                };
+            
+                                python.PythonShell.run('Control_Equipment.py', options, function (err, data) {
+                                    if (err) throw err;
+                                    console.log(data);
+                            
+                            
+                            
+                                });
+                            }else if(dat.type === "alert"){
+                                let options = {
+                                    mode: 'text',
+                                    scriptPath: 'app/controller/dummy_pdu_1',
+                                    args: ['--value', dat.value]
+                                };
+            
+                                python.PythonShell.run('Control_Equipment.py', options, function (err, data){
+                                    if (err) throw err;
+                                    console.log(data)
+                                })
+            
+                                //console.log("SABAR YAAA MASIH DI USAHAKAN ")
+                            }
+                        })
+                    })
                     console.log(event.params.action_id)})
         }).catch(console.log)
     })
