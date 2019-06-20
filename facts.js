@@ -44,7 +44,9 @@ role.findAll({attributes : ['roleallcondition']}).then(a=>{
                 humidity_4_PDU: 12,
                 load_3_UPS : 12,
                 inlet_power_5_PDU : 0,
-                outlet_1_current_5_PDU : 0 
+                outlet_1_current_5_PDU : 0,
+                temperature_5_PDU : 0
+
             }
 
 
