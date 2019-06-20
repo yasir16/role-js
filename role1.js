@@ -16,7 +16,6 @@ function fromarray(database){
         console.log(abs)
         array.push(abs)
 
-        return array
         abs.map(data=>{
             var aw = JSON.parse(data.roleallcondition)
             array.push(aw)
