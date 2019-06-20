@@ -9,17 +9,40 @@ let Engine = require('../role-js/node_modules/json-rules-engine/dist').Engine
 let engine = new Engine()
 
 
+function fromarray(database){
+    var array = []
+    
+    return database.findAll({attributes : ['roleallcondition']}).then(a => {
+        console.log(a)
+        a.map(data=>{
+            var aw = JSON.parse(data.roleallcondition)
+            array.push(aw)
+
+            return array
+        }).catch(err=>{
+            console.log(err)
+        })
+    })
+
+}
+
+console.log(fromarray(role))
+
 module.exports = {
     createRule : () => {
-        role.findAll({attributes : ['roleallcondition']}).then(a=>{
-            a.map(data=> {
-                // console.log(data.roleallcondition.conditions)
-                var aw = JSON.parse(data.roleallcondition)
-                // console.log(data.roleallcondition)
-                // console.log(aw.conditions.any)
-                engine.addRule(aw)
-            })
+
+        fromarray(role).then(function(testing){
+            console.log(testing.lengths)
         })
+        // role.findAll({attributes : ['roleallcondition']}).then(a=>{
+        //     a.map(data=> {
+        //         // console.log(data.roleallcondition.conditions)
+        //         var aw = JSON.parse(data.roleallcondition)
+        //         // console.log(data.roleallcondition)
+        //         // console.log(aw.conditions.any)
+        //         engine.addRule(aw)
+        //     })
+        // })
     },
     getEngine : (facts) =>{
         console.log("PRINT GET ENGINE")
